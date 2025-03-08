@@ -1,0 +1,205 @@
+<html>
+ <head>
+  <title>
+   AgriLearnNetwork Community
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100">
+  
+  <div class="container mx-auto mt-10 flex justify-center">
+   <button class="bg-green-700 text-white p-4 rounded-full shadow-lg hover:bg-green-800 transition duration-300" onclick="toggleDashboard()">
+    <i class="fas fa-users text-2xl">
+    </i>
+   </button>
+  </div>
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden" id="dashboard">
+   <div class="bg-white rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2 relative">
+    <span class="text-red-600 text-2xl font-bold absolute top-4 right-4 cursor-pointer" onclick="toggleDashboard()">
+     ×
+    </span>
+    <div class="flex flex-wrap justify-around">
+     <div class="bg-white rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4 mb-6 text-center transform hover:scale-105 transition duration-300">
+      <img alt="Image of a farmer in a field" class="mx-auto mb-4 rounded-full" height="100" src="https://storage.googleapis.com/a1aa/image/4_pmHuhSpD45gDGxuI4DAxqEAbZI7v3hNcVq5dsjKk4.jpg" width="100"/>
+      <h2 class="text-green-700 text-2xl font-bold mb-2">
+       Farmers
+      </h2>
+      <p class="text-gray-600 mb-4">
+       Join our community of farmers to access schemes, grants, and check your eligibility.
+      </p>
+      <button class="bg-green-700 text-white py-2 px-4 rounded hover:bg-green-800 transition duration-300" onclick="openModal('farmers')">
+       Join Farmers
+      </button>
+     </div>
+     <div class="bg-white rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4 mb-6 text-center transform hover:scale-105 transition duration-300">
+      <img alt="Image of a vendor selling agricultural products" class="mx-auto mb-4 rounded-full" height="100" src="https://storage.googleapis.com/a1aa/image/if0Uzh-I1pyVEhS2lDy6d2yB10LAN-LN4eMufviAZrs.jpg" width="100"/>
+      <h2 class="text-green-700 text-2xl font-bold mb-2">
+       Vendors
+      </h2>
+      <p class="text-gray-600 mb-4">
+       Connect with farmers and authorities to offer your products and services.
+      </p>
+      <button class="bg-green-700 text-white py-2 px-4 rounded hover:bg-green-800 transition duration-300" onclick="openModal('vendors')">
+       Join Vendors
+      </button>
+     </div>
+     <div class="bg-white rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4 mb-6 text-center transform hover:scale-105 transition duration-300">
+      <img alt="Image of an authority figure in an office" class="mx-auto mb-4 rounded-full" height="100" src="https://storage.googleapis.com/a1aa/image/xG3lgXrF4FPMDqPCrB1cqk-AXJz9raQiqzTp6FihxOI.jpg" width="100"/>
+      <h2 class="text-green-700 text-2xl font-bold mb-2">
+       Authorities
+      </h2>
+      <p class="text-gray-600 mb-4">
+       Collaborate with farmers and vendors to ensure a sustainable agri ecosystem.
+      </p>
+      <button class="bg-green-700 text-white py-2 px-4 rounded hover:bg-green-800 transition duration-300" onclick="openModal('authorities')">
+       Join Authorities
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+ 
+  
+  <!-- Modal -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden" id="modal">
+   <div class="bg-white rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2 relative">
+    <span class="text-red-600 text-2xl font-bold absolute top-4 right-4 cursor-pointer" onclick="closeModal()">
+     
+    </span>
+    <h2 class="text-2xl font-bold mb-4" id="modal-title">
+    </h2>
+    <p class="text-gray-600 mb-4" id="modal-description">
+    </p>
+    <div class="flex flex-col md:flex-row">
+     <div class="w-full md:w-1/2 p-4">
+      <h3 class="text-xl font-bold mb-2">
+       Check Eligibility
+      </h3>
+      <form class="eligibility-form" id="eligibility-form">
+       <label class="block mb-2">
+        Are you an active farmer?
+        <input class="ml-2" name="activeFarmer" type="radio" value="yes"/>
+        Yes
+        <input class="ml-2" name="activeFarmer" type="radio" value="no"/>
+        No
+       </label>
+       <label class="block mb-2">
+        Do you own or lease farmland?
+        <input class="ml-2" name="farmland" type="radio" value="yes"/>
+        Yes
+        <input class="ml-2" name="farmland" type="radio" value="no"/>
+        No
+       </label>
+       <label class="block mb-2">
+        Do you have government-issued farm registration?
+        <input class="ml-2" name="registration" type="radio" value="yes"/>
+        Yes
+        <input class="ml-2" name="registration" type="radio" value="no"/>
+        No
+       </label>
+       <button class="bg-green-700 text-white py-2 px-4 rounded mt-4 hover:bg-green-800 transition duration-300" onclick="checkEligibility()" type="button">
+        Submit
+       </button>
+      </form>
+      <p class="mt-4 text-gray-600" id="eligibility-result">
+      </p>
+     </div>
+     <div class="w-full md:w-1/2 p-4">
+      <h3 class="text-xl font-bold mb-2">
+       Available Schemes &amp; Grants
+      </h3>
+      <ul class="list-disc list-inside text-left" id="schemes-list">
+      </ul>
+     </div>
+    </div>
+    <div class="mt-6">
+     <h3 class="text-xl font-bold mb-2">
+      Steps to Apply
+     </h3>
+     <ol class="list-decimal list-inside text-left">
+      <li>
+       Register on the respective scheme's website.
+      </li>
+      <li>
+       Fill out the application form with accurate details.
+      </li>
+      <li>
+       Submit the required documents.
+      </li>
+      <li>
+       Wait for the verification process to complete.
+      </li>
+      <li>
+       Receive confirmation and start benefiting from the scheme.
+      </li>
+     </ol>
+    </div>
+   </div>
+  </div>
+  <script>
+   const schemesData = {
+            farmers: [
+                { name: "PM-KISAN", link: "https://pmkisan.gov.in" },
+                { name: "KCC Loan", link: "https://kccloan.gov.in" },
+                { name: "Soil Health Card", link: "https://soilhealth.dac.gov.in" }
+            ],
+            vendors: [
+                { name: "Agricultural Vendor Support", link: "https://vendorsupport.gov.in" },
+                { name: "Market Access Grant", link: "https://marketaccess.gov.in" }
+            ],
+            authorities: [
+                { name: "Agriculture Policy Framework", link: "https://agri.gov.in" }
+            ]
+        };
+
+        function toggleDashboard() {
+            const dashboard = document.getElementById("dashboard");
+            dashboard.classList.toggle("hidden");
+        }
+
+        function openModal(type) {
+            document.getElementById("modal-title").innerText = `Join as ${type.charAt(0).toUpperCase() + type.slice(1)}`;
+            document.getElementById("modal-description").innerText = `Explore the latest schemes, grants, and check your eligibility for various programs.`;
+
+            let schemesList = document.getElementById("schemes-list");
+            schemesList.innerHTML = "";
+            schemesData[type].forEach(scheme => {
+                let listItem = document.createElement("li");
+                listItem.innerHTML = `<a href="${scheme.link}" target="_blank" class="text-blue-600 hover:underline">${scheme.name}</a>`;
+                schemesList.appendChild(listItem);
+            });
+
+            document.getElementById("modal").classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("modal").classList.add("hidden");
+            document.getElementById("eligibility-result").innerText = "";
+        }
+
+        function checkEligibility() {
+            let activeFarmer = document.querySelector('input[name="activeFarmer"]:checked');
+            let farmland = document.querySelector('input[name="farmland"]:checked');
+            let registration = document.querySelector('input[name="registration"]:checked');
+
+            if (activeFarmer && farmland && registration) {
+                if (activeFarmer.value === "yes" && farmland.value === "yes" && registration.value === "yes") {
+                    document.getElementById("eligibility-result").innerText = "You are eligible for government schemes and grants!";
+                } else {
+                    document.getElementById("eligibility-result").innerText = "You may not qualify for all schemes. Check the specific eligibility requirements.";
+                }
+            } else {
+                document.getElementById("eligibility-result").innerText = "Please answer all questions.";
+            }
+        }
+  </script>
+ </body>
+</html>

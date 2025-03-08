@@ -1,0 +1,239 @@
+<div class="services-box">
+    <!-- Card 1 -->
+    <div class="fcard z2" onclick="window.location.href='https://tractorkarvan.com/blog/how-to-sow-seeds';">
+      <img class="agrblg" src="../images/sow.jpg">
+      <div class="article">
+        <a href="">Blog</a>
+        <h4 class="card-title" data-translate>Learn Modern Farm Practices</h4>
+        <p class="card-text">Explore advanced farming techniques, sustainable agriculture, and innovative solutions for better yields.</p>
+        <a href="modern-practices.html" class="card-btn">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="fcard z2" onclick="window.location.href='https://www.groundsguys.com/blog/2015/july/irrigation-different-techniques-and-benefits/';">
+      <img class="agrblg" src="../images/irrigation.jpg">
+      <div class="article">
+        <a href="">Technique</a>
+        <h4 class="card-title" data-translate>Connect with Companies & Market Yards</h4>
+        <p class="card-text">Find buyers, check market prices of crops, and connect with agricultural companies for better sales opportunities.</p>
+        <a href="market-yards.html" class="card-btn">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="fcard z2" onclick="window.location.href='https://www.worldbank.org/en/topic/climate-smart-agriculture';">
+      <img class="agrblg" src="../images/climate.jpeg">
+      <div class="article">
+        <a href="">Blog</a>
+        <h4 class="card-title" data-translate>Info & Eligibility for Grants & Schemes</h4>
+        <p class="card-text">Get details on government grants, subsidies, and eligibility criteria to maximize financial benefits.</p>
+        <a href="community.html" class="card-btn">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="fcard z2" onclick="window.location.href='https://www.ucsusa.org/resources/what-sustainable-agriculture';">
+      <img class="agrblg" src="../images/sustainable.jpg">
+      <div class="article">
+        <a href="">Blog</a>
+        <h4 class="card-title" data-translate>Disease Prediction in Crops</h4>
+        <p class="card-text">Use AI-driven tools to identify crop diseases early and take preventive measures to protect your yield.</p>
+        <a href="crop-disease.html" class="card-btn">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+    body {
+      scrollbar-width: none;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 10rem 9% 2rem;
+    }
+
+    .header {
+      position: fixed;
+      opacity: 0.8;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 9%;
+      background-color: var(--bg-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      transition: all 0.8s;
+    }
+
+    .services-container .services-box {
+      flex: 1 1 30rem;
+      background: var(--second-color);
+      padding: 3rem 2rem 4rem;
+      border-radius: 2rem;
+      text-align: center;
+      border: 0.2rem solid var(--bg-color);
+      transition: 0.5s ease;
+      position: relative;
+      overflow: hidden;
+      align-self: stretch;
+    }
+
+    .services-box i {
+      font-size: 7rem;
+      color: var(--main-color);
+    }
+
+    .services-box h3 {
+      font-size: 2.6rem;
+      color: white;
+      text-shadow: #07421a;
+      text-shadow: 0 0 5px rgb(192, 223, 100);
+    }
+
+    .services-box h3:hover {
+      font-size: 2.6rem;
+      text-shadow: #07421a;
+    }
+
+    .services-box p {
+      font-size: 1.6rem;
+      margin: 1rem 0 3rem;
+    }
+
+    .services-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-family: "Inter", sans-serif;
+      padding: 30px;
+    }
+
+    .fcard {
+      display: flex;
+      margin-top: auto;
+      flex-direction: column;
+      position: relative;
+      max-width: 290px;
+      max-height: 680px;
+      background: linear-gradient(90deg, rgb(31, 102, 31), rgb(231, 231, 121));
+      border-radius: 10px;
+      margin: 10px;
+      margin-bottom: 30px;
+      align-self: stretch;
+      flex: 1 1 21%;
+      opacity: 1;
+      cursor: pointer;
+      transform: translateY(0px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    }
+
+    .fcard:hover {
+      box-shadow: 2px 2px 10px rgba(185, 185, 106, 0.8);
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      margin-bottom: 35px;
+    }
+
+    .article h2 {
+      font-size: 22px;
+      letter-spacing: 1px;
+      text-shadow: 1.5px 1px green;
+      text-align: left;
+    }
+
+    .article p {
+      font-size: 12px;
+      color: rgb(255, 255, 199);
+      margin-bottom: 10px; /* Reduced margin to remove extra space */
+    }
+
+    .agrblg {
+      height: 250px;
+      width: 100%;
+      overflow: hidden;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      filter: drop-shadow(0px 2px 2px #133813aa);
+    }
+
+    .article {
+      padding: 22px;
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      height: 100%; /* Adjusted height */
+      margin-bottom: 12px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .day {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      justify-content: space-between;
+      bottom: 0;
+      padding: 0;
+      height: 65px;
+    }
+
+    .day ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .date {
+      margin-right: 5px;
+      text-align: left;
+      padding-right: 30px;
+    }
+
+    .time {
+      text-align: left;
+      padding-right: 20px;
+      align-self: flex-end;
+    }
+
+    .day p {
+      color: rgb(230, 226, 226);
+    }
+
+    .pos {
+      position: relative;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    /* Button Styling */
+    .card-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px; /* Adjusted margin */
+      align-self: center; /* Center button horizontally */
+      text-align: center;
+      display: inline-block;
+    }
+
+    .card-btn:hover {
+      background-color: #218838;
+    }
+  </style>
