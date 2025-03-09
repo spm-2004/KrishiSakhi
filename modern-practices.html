@@ -204,7 +204,7 @@
       <nav class="navbar">
         
         <div class="nav-container">
-            <a href="#home" class="active content" data-translate><i class="fa-solid fa-house"></i> Home</a>
+            <a href="index.html" class="active content" data-translate><i class="fa-solid fa-house"></i> Home</a>
             <a href="#Resource Library"  data-translate><i class="fa-solid fa-book"></i> Resource Library</a>
             <a href="./FAQS/faqpage.html"  target="_self" data-translate><i class="fas fa-question-circle"></i> FAQs</a>
         </div>
@@ -267,7 +267,7 @@
 
     <section class="resource" id="Resource Library">
        <div class="container mt-4">
-        <h1 class="text-center" style="color: #1b4332;">Learn Modern Agricultural Practices</h1>
+        <h1 class="text-center" style="color: #1b4332;" data-translate>Learn Modern Agricultural Practices</h1>
         <br>
        </br>
         
@@ -275,7 +275,7 @@
 <div class="row mt-3">
   <!-- Video 1 -->
   <div class="col-md-3">
-    <h4 style="color: #1b4332;">Understanding Drip Irrigation</h4>
+    <h4 style="color: #1b4332;"data-translate>Understanding Drip Irrigation</h4>
     <div class="video-container">
       <iframe width="100%" height="200" src="https://www.youtube.com/embed/a3m5U1d06AY?si=p6SFCKksUuE6AZvI" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -283,7 +283,7 @@
 
   <!-- Video 2 -->
   <div class="col-md-3">
-    <h4 style="color: #1b4332;">Using Organic Fertilizers</h4>
+    <h4 style="color: #1b4332;"data-translate>Using Organic Fertilizers</h4>
     <div class="video-container">
       <iframe width="100%" height="200" src="https://www.youtube.com/embed/a3m5U1d06AY?si=p6SFCKksUuE6AZvI" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -291,7 +291,7 @@
 
   <!-- Video 3 -->
   <div class="col-md-3">
-    <h4 style="color: #1b4332;">Crop Rotation Techniques</h4>
+    <h4 style="color: #1b4332;"data-translate>Crop Rotation Techniques</h4>
     <div class="video-container">
       <iframe width="100%" height="200" src="https://www.youtube.com/embed/T0V_3BUmSkw?si=P4TX_E3BFVX1Pvvl" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -299,7 +299,7 @@
 
   <!-- Video 4 -->
   <div class="col-md-3">
-    <h4 style="color: #1b4332;">Pest Control Methods</h4>
+    <h4 style="color: #1b4332;"data-translate>Pest Control Methods</h4>
     <div class="video-container">
       <iframe width="100%" height="200" src="https://www.youtube.com/embed/NJJErPfQ-W0?si=Xs6VuYigTWc501VJ" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -347,38 +347,73 @@
 
 <br>
 <section class="quiz-section">
-  <h2 class="text-center">Agriculture Knowledge Quiz</h2>
+  <h1 class="text-center" data-translate>Agriculture Knowledge Quiz</h1>
 <br>
   <div class="quiz-container">
     <!-- Quiz 1 -->
     <div class="quiz-card">
-      <h4>What is the main benefit of drip irrigation?</h4>
+      <h4 data-translate>What is the main benefit of drip irrigation?</h4>
       <div class="options" id="quiz1-options">
-        <button class="btn quiz-btn" onclick="checkAnswer(this, 0, 0)">Saves water</button>
-        <button class="btn quiz-btn" onclick="checkAnswer(this, 0, 1)">Wastes water</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 0, 0)"data-translate>Saves water</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 0, 1)"data-translate>Wastes water</button>
       </div>
       <p class="feedback" id="quiz1-feedback"></p>
     </div>
 
     <!-- Quiz 2 -->
     <div class="quiz-card">
-      <h4>Which of the following is an organic fertilizer?</h4>
+      <h4 data-translate >Which of the following is an organic fertilizer?</h4>
       <div class="options" id="quiz2-options">
-        <button class="btn quiz-btn" onclick="checkAnswer(this, 1, 0)">Compost</button>
-        <button class="btn quiz-btn" onclick="checkAnswer(this, 1, 1)">Urea</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 1, 0)"data-translate>Compost</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 1, 1)"data-translate>Urea</button>
       </div>
       <p class="feedback" id="quiz2-feedback"></p>
     </div>
 
     <!-- Quiz 3 -->
     <div class="quiz-card">
-      <h4>What is crop rotation?</h4>
+      <h4 data-translate>What is crop rotation?</h4>
       <div class="options" id="quiz3-options">
-        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 0)">Changing crops seasonally</button>
-        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 1)">Planting the same crop</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 0)"data-translate>Changing crops seasonally</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 1)"data-translate>Planting the same crop</button>
       </div>
       <p class="feedback" id="quiz3-feedback"></p>
     </div>
+
+     <!-- Quiz 4 -->
+     <div class="quiz-card">
+      <h4 data-translate>What is crop rotation?</h4>
+      <div class="options" id="quiz3-options">
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 0)"data-translate>Changing crops seasonally</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 1)"data-translate>Planting the same crop</button>
+      </div>
+      <p class="feedback" id="quiz3-feedback"></p>
+    </div>
+
+     <!-- Quiz 5-->
+     <div class="quiz-card">
+      <h4 data-translate>What is crop rotation?</h4>
+      <div class="options" id="quiz3-options">
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 0)"data-translate>Changing crops seasonally</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 1)"data-translate>Planting the same crop</button>
+      </div>
+      <p class="feedback" id="quiz3-feedback"></p>
+    </div>
+
+     <!-- Quiz 6-->
+     <div class="quiz-card">
+      <h4 data-translate>What is crop rotation?</h4>
+      <div class="options" id="quiz3-options">
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 0)"data-translate>Changing crops seasonally</button>
+        <button class="btn quiz-btn" onclick="checkAnswer(this, 2, 1)"data-translate>Planting the same crop</button>
+      </div>
+      <p class="feedback" id="quiz3-feedback"></p>
+    </div>
+
+
+    
+
+    
 
    
   </div>
@@ -506,7 +541,7 @@
         </h2>
         <p class="main-para mb-4" data-translate>
           Let us know how we're doing and how we can improve. <br /><strong
-            >AgriLearn Network</strong
+            >KrishiSakhi</strong
           >
         </p>
         <div class="rating mb-4">

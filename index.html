@@ -228,7 +228,7 @@
 
 .resource-card img {
   width: 100%;
-  height: 180px;
+  height: 1=0px;
   object-fit: cover;
 }
 
@@ -291,6 +291,10 @@ h4 {
                 <button onclick="translatePage('mr')">MARATHI</button>
                 <button onclick="translatePage('en')">ENGLISH</button>
                 <button onclick="translatePage('gu')">GUJARATI</button>
+                <button onclick="translatePage('ta')">TAMIL</button>
+                <button onclick="translatePage('te')">TELUGU</button>
+                <button onclick="translatePage('ml')">MALAYALAM</button>
+                <button onclick="translatePage('kn')">KANNADA</button>
             </div>
         </div>
       
@@ -340,7 +344,6 @@ h4 {
     </section>
 
     
-
     <section class="resource" id="Resource Library">
       <div class="container py-5">
         
@@ -351,8 +354,8 @@ h4 {
             <img src="../images/irrigation.jpg" alt="Irrigation Techniques">
             <div class="card-content">
               
-              <h4 data-translate>Connect with Companies & Market Yards</h4>
-              <p data-translate>Find buyers, check market prices, and connect with agricultural companies for better sales opportunities.</p>
+              <h4 data-translate>Learn modern techniques</h4>
+              <p data-translate>Interactive videos and quizzes for better understanding</p>
               <a href="modern-practices.html" class="card-btn"data-translate>Learn More</a>
             </div>
           </div>
@@ -362,8 +365,8 @@ h4 {
             <img src="../images/climate.jpeg" alt="Climate Smart Agriculture">
             <div class="card-content">
              
-              <h4 data-translate>Info & Eligibility for Grants & Schemes</h4>
-              <p data-translate>Get details on government grants, subsidies, and eligibility criteria to maximize financial benefits.</p>
+              <h4 data-translate>Forums and schemes</h4>
+              <p data-translate> Connect with vendors and avail schemes</p>
               <a href="community.html" class="card-btn" data-translate>Learn More</a>
             </div>
           </div>
@@ -373,9 +376,9 @@ h4 {
             <img src="../images/sustainable.jpg" alt="Sustainable Agriculture">
             <div class="card-content">
              
-              <h4 data-translate>Disease Prediction in Crops</h4>
-              <p data-translate>Use AI-driven tools to identify crop diseases early and take preventive measures to protect your yield.</p>
-              <a href="crop-disease.html" class="card-btn" data-translate>Learn More</a>
+              <h4 data-translate>Crop market prices</h4>
+              <p data-translate>Understand and get crop prices in real time</p>
+              <a href="market.html" class="card-btn" data-translate>Learn More</a>
             </div>
           </div>
 
@@ -384,9 +387,9 @@ h4 {
                 <img src="../images/climate.jpeg" alt="Climate Smart Agriculture">
                 <div class="card-content">
                  
-                  <h4 data-translate>Crop Disease and Weather Forecasting</h4>
+                  <h4 data-translate>Crop Disease</h4>
                   <p data-translate>Detecting disease oin crops and weather forcasting</p>
-                  <a href="community.html" class="card-btn" data-translate>Learn More</a>
+                  <a href="./crop_disease/templates/index.html" class="card-btn" data-translate>Learn More</a>
                 </div>
               </div>
         </div>
@@ -532,7 +535,7 @@ h4 {
         </h2>
         <p class="main-para mb-4" data-translate>
           Let us know how we're doing and how we can improve. <br /><strong
-            >AgriLearn Network</strong
+            >KrishiSakhi</strong
           >
         </p>
         <div class="rating mb-4">
@@ -1005,6 +1008,29 @@ h4 {
     
     <head>
       <style>
+
+            /* Weather Button */
+.weather-btn {
+    position: fixed;
+    bottom: 90px; /* Positioned above the chatbot button */
+    right: 20px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.weather-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+
+
           /* Chatbot Button */
           #chatbotButton {
               position: fixed;
@@ -1026,7 +1052,7 @@ h4 {
               position: fixed;
               bottom: 80px;
               right: 20px;
-              width: 320px;
+              width: 400px;
               height: 400px;
               background: white;
               border-radius: 10px;
@@ -1086,9 +1112,33 @@ h4 {
               padding: 8px;
           }
       </style>
+
+
+
   </head>
+
+
+  
   <body>
   
+
+    <div class="container">
+      <!-- Weather Button -->
+      <button class="weather-btn" onclick="window.location.href='portal.html'">
+        <i class="fas fa-cloud-sun"></i> <!-- Weather Icon -->
+    </button>
+
+      <!-- Weather Info Box -->
+      <div class="weather-info" id="weatherInfo">
+          <h3>Weather Info</h3>
+          <p id="weatherText">Loading...</p>
+      </div>
+  </div>
+
+
+       <!-- Weather Button -->
+
+
       <!-- Chatbot Toggle Button -->
       <button id="chatbotButton" onclick="toggleChatbot()">💬</button>
   
@@ -1125,7 +1175,7 @@ h4 {
               userMessage = inputField.value.trim();
               if (!userMessage) return;
           }
-          
+
           chatBox.innerHTML += `<div class='user'><strong>You:</strong> ${userMessage}</div>`;
           inputField.value = "";  
           chatBox.scrollTop = chatBox.scrollHeight;
@@ -1151,8 +1201,8 @@ h4 {
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({
                           contents: [{ role: "user", parts: [{ text: userMessage + " answer in 100 words" }] }],
-                          contents: [{ role: "user", parts: [{ text: userMessage + " उत्तर मराठीत द्या. १०० शब्दांत."
-                        }] }],
+                          contents: [{ role: "user", parts: [{ text: userMessage + " answer in same language in which question has been asked."
+                        }]}],
                           generationConfig: { maxOutputTokens: 250 }
                       })
                   }

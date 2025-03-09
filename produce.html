@@ -5,102 +5,379 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KrishiSakhi</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <link rel="icon" href="icon.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="./cursor/style.css" />
     <link rel="stylesheet" href="./testimonials/testimonials.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
-    <script src="https://kit.fontawesome.com/b08b6de27e.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7972082263222296" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="./Scrollbar/scrollbar.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-      body { font-family: Arial, sans-serif; text-align: center; margin: 10px; font-size: 14px; }
-      table { width: 90%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
-      th, td { border: 1px solid black; padding: 10px; text-align: center; }
-      th { background-color: #4CAF50; color: white; }
-      .chart-container { width: 90%; margin: auto; }
-      canvas { max-width: 100%; height: 300px !important; }
-      .legal-page a { text-decoration: none; color: white; }
-      .legal-page a:hover { color: rgb(192, 223, 100); }
-      .navbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; }
-      .navbar a { color: rgb(22, 3, 3); text-decoration: none; padding: 10px 15px; font-size: 16px; transition: 0.3s; }
-      .navbar a:hover { background: rgba(255, 255, 255, 0.2); border-radius: 5px; }
-      .login-btn { background: #28a745; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
-      .login-btn:hover { background: #218838; }
-      .dropdown { position: relative; display: inline-block; margin-left: auto; }
-      .dropdown > button { background-color: #28a745; color: white; border: none; padding: 10px 15px; font-size: 16px; border-radius: 20px; cursor: pointer; transition: background 0.3s ease; }
-      .dropdown > button:hover { background: #28a745; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
-      .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 140px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); z-index: 1; overflow: hidden; }
-      .dropdown-content button { width: 100%; padding: 10px; text-align: left; border: none; background: none; color: black; font-size: 14px; cursor: pointer; transition: background 0.3s ease; }
-      .dropdown-content button:hover { background-color: #28a745; color: white; }
-      .dropdown:hover .dropdown-content { display: block; }
-      .nav-container { display: flex; align-items: center; width: 100%; }
-      .resource { background-color: #f8f9fa; padding: 50px 0; }
-      .card-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-      .resource-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden; width: 300px; transition: transform 0.3s ease; cursor: pointer; }
-      .resource-card:hover { transform: scale(1.05); }
-      .resource-card img { width: 100%; height: 150px; object-fit: cover; }
-      .card-content { padding: 15px; text-align: center; }
-      .category { font-size: 14px; font-weight: 600; color: #007bff; display: block; margin-bottom: 8px; }
-      h4 { font-size: 18px; margin: 10px 0; }
-      .card-content p { font-size: 14px; color: #666; }
-      .card-btn { display: inline-block; margin-top: 10px; padding: 8px 15px; font-size: 14px; background-color: #007bff; color: white; border-radius: 5px; text-decoration: none; transition: background 0.3s; }
-      .card-btn:hover { background-color: #0056b3; }
-    </style>
-    <script>
-      const translations = {
-        hi: {
-          'Real-Time Market Price Tracker': 'वास्तविक समय बाजार मूल्य ट्रैकर',
-          'Commodity': 'वस्तु',
-          'Current Price (₹/kg)': 'वर्तमान मूल्य (₹/किग्रा)'
-        },
-        mr: {
-          'Real-Time Market Price Tracker': 'वास्तविक वेळेचा बाजारभाव ट्रॅकर',
-          'Commodity': 'माल',
-          'Current Price (₹/kg)': 'चालू किंमत (₹/किग्रॅ)'
-        }
-      };
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <!-- <script src="testimonials.js" defer></script> -->
 
-      function translatePage(lang) {
-        document.querySelector('h2').innerText = translations[lang]['Real-Time Market Price Tracker'];
-        document.querySelectorAll('th')[0].innerText = translations[lang]['Commodity'];
-        document.querySelectorAll('th')[1].innerText = translations[lang]['Current Price (₹/kg)'];
+    <!-- <script src="./cursor/script.js"></script> -->
+
+    <script
+      src="https://kit.fontawesome.com/b08b6de27e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7972082263222296"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <link rel="icon" href="./agriculture-icon-png-2804.png" type="'image/png"> -->
+    <style>
+      .legal-page a {
+        text-decoration: none;
+        color: white;
       }
-    </script>
+      .legal-page a:hover {
+        color: rgb(192, 223, 100);
+      }
+    </style>
+
+    <link rel="stylesheet" href="./Scrollbar/scrollbar.css" />
   </head>
+
   <body>
     <div id="progressBar"></div>
     <script src="./Scrollbar/scrollbar.js"></script>
+    
     <div id="loader-wrapper">
       <div id="loader"></div>
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
     </div>
     <header class="header">
-      <img src="logo1.png" alt="logo" style="height: 60px; width: 60px; margin-right: 10px" />
-      <a href="#" class="logo" style="margin-inline-end: auto"><h3 data-translate>KrishiSakhi</h3></a>
+      <img
+        src="logo1.png"
+        alt="logo"
+        style="height: 60px; width: 60px; margin-right: 10px"
+      />
+      <a href="#" class="logo" style="margin-inline-end: auto"
+        ><h3 data-translate>KrishiSakhi</h3>
+      </a>
+      <head>
+       
+    
+
+      <!-- adding the toggle mode button -->
+      <a>
+        <div class="theme-toggle">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </a>
+
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <style>
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            padding: 10px 20px;
+            
+        }
+      
+        .navbar a {
+            color: rgb(22, 3, 3);
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+      
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+      
+        /* Login Button */
+        .login-btn {
+            background: #28a745; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+      
+        .login-btn:hover {
+            background: #218838;
+        }
+      
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: auto;
+        }
+      
+        .dropdown > button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+      
+        .dropdown > button:hover {
+            background: #28a745; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+      
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 140px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            overflow: hidden;
+        }
+      
+        .dropdown-content button {
+            width: 100%;
+            padding: 10px;
+            text-align: left;
+            border: none;
+            background: none;
+            color: black;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+      
+        .dropdown-content button:hover {
+            background-color: #28a745;
+            color: white;
+        }
+      
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+      
+        /* Make navbar items and dropdown align properly */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+
+      
+        .resource {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resource-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.resource-card:hover {
+  transform: scale(1.05);
+}
+
+.resource-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.category {
+  font-size: 14px;
+  font-weight: 600;
+  color: #007bff;
+  display: block;
+  margin-bottom: 8px;
+}
+
+h4 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #666;
+}
+
+.card-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.card-btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Resource Section Styling */
+.resource {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resource-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.resource-card:hover {
+  transform: scale(1.05);
+}
+
+.resource-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.category {
+  font-size: 14px;
+  font-weight: 600;
+  color: #007bff;
+  display: block;
+  margin-bottom: 8px;
+}
+
+h4 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #666;
+}
+
+.card-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.card-btn:hover {
+  background-color: #0056b3;
+}
+
+#market-vendors {
+  padding-bottom: 1px; /* Minimal space below Market Vendors */
+}
+
+#fertilizer-providers {
+  padding-top: 0; /* No extra space above Fertilizer Providers */
+}
+      
+      </style>
+      
+      <!-- Navbar -->
       <nav class="navbar">
+        
         <div class="nav-container">
-          <a href="index.html" class="active content" data-translate><i class="fa-solid fa-house"></i> Home</a>
-          <a href="#Resource Library" data-translate><i class="fa-solid fa-book"></i> Resource Library</a>
-          <a href="./FAQS/faqpage.html" target="_self" data-translate><i class="fas fa-question-circle"></i> FAQs</a>
+            <a href="#home" class="active content" data-translate><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#Resource Library"  data-translate><i class="fa-solid fa-book"></i> Resource Library</a>
+            <a href="./FAQS/faqpage.html"  target="_self" data-translate><i class="fas fa-question-circle"></i> FAQs</a>
         </div>
+      
+        <!-- Dropdown (Language Selector) -->
         <div class="dropdown">
-          <button>Language</button>
-          <div class="dropdown-content">
-            <button onclick="translatePage('hi')">HINDI</button>
-            <button onclick="translatePage('mr')">MARATHI</button>
-            <button onclick="translatePage('en')">ENGLISH</button>
-            <button onclick="translatePage('gu')">GUJARATI</button>
-          </div>
+            <button>Language</button>
+            <div class="dropdown-content">
+                <button onclick="translatePage('hi')">HINDI</button>
+                <button onclick="translatePage('mr')">MARATHI</button>
+                <button onclick="translatePage('en')">ENGLISH</button>
+                <button onclick="translatePage('gu')">GUJARATI</button>
+            </div>
         </div>
+      
+        <!-- Login Button -->
+       
       </nav>
+      
     </header>
 
     <section class="home" id="home">
@@ -108,301 +385,120 @@
         <div class="home-content content glow">
           <h3 class="home--welcome" data-translate>Welcome to</h3>
           <h1 class="home--welcome" data-translate>KrishiSakhi</h1>
-          <h3 class="home--welcome" data-translate>Your Agricultural Knowledge Hub to <span class="multiple-text un"></span></h3>
+          <h3 class="home--welcome" data-translate>
+            Your Agricultural Knowledge Hub to
+            <span class="multiple-text un"></span>
+          </h3>
         </div>
         <div class="slide_viewer">
           <div class="slide_group">
-            <div class="slide" style="background-image: url(./images/carousel-img-2.jpg)"></div>
-            <div class="slide" style="background-image: url(./images/carousel-img-1.jpg)"></div>
-            <div class="slide" style="background-image: url(./images/carousel-img-3.jpg)"></div>
-            <div class="slide" style="background-image: url(./images/carousel-img-4.jpg)"></div>
-            <div class="slide" style="background-image: url(./images/carousel-img-2.jpg)"></div>
+            <div
+              class="slide"
+              style="background-image: url(./images/carousel-img-2.jpg)"
+            ></div>
+            <div
+              class="slide"
+              style="background-image: url(./images/carousel-img-1.jpg)"
+            ></div>
+            <div
+              class="slide"
+              style="background-image: url(./images/carousel-img-3.jpg)"
+            ></div>
+            <div
+              class="slide"
+              style="background-image: url(./images/carousel-img-4.jpg)"
+            ></div>
+            <div
+              class="slide"
+              style="background-image: url(./images/carousel-img-2.jpg)"
+            ></div>
+            <!--duplicate of the first image-->
+            <!-- <div class="slide" style="background-image: url(./images/carousel-img-5.jpg)"></div> -->
           </div>
         </div>
       </div>
     </section>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-    }
-    .card-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 30%;
-      min-width: 250px;
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
-    .card img {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      margin-bottom: 15px;
-    }
-    .card h2 {
-      color: #28a745;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-    .card p {
-      color: #666;
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-    .card button {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .card button:hover {
-      background-color: #218838;
-    }
-  </style>
-</head>
-<body class="bg-gray-100">
-  <div class="card-container">
-    <!-- Farmers Card -->
+
+    
+
+    <!-- Market Vendors Section -->
+<section class="resource" id="market-vendors">
+    <h2 class="heading" data-translate>Connect with Market Vendors</h2>
     <div class="card-container">
-      <!-- Farmers Card -->
-      <div class="card">
-        <div class="image-container">
-          <img src="https://storage.googleapis.com/a1aa/image/4_pmHuhSpD45gDGxuI4DAxqEAbZI7v3hNcVq5dsjKk4.jpg" alt="Image of a farmer in a field" />
-        </div>
-        <h2 data-translate>Farmers</h2>
-        <p data-translate>Join our community of farmers to access schemes, grants, and check your eligibility.</p>
-        <button onclick="redirectToFarmersPage()">Join Farmers</button>
-      </div>
-    
-      <!-- Vendors Card -->
-      <div class="card">
-        <div class="image-container">
-          <img src="https://storage.googleapis.com/a1aa/image/if0Uzh-I1pyVEhS2lDy6d2yB10LAN-LN4eMufviAZrs.jpg" alt="Image of a vendor selling agricultural products" />
-        </div>
-        <h2 data-translate>Vendors</h2>
-        <p data-translate>Connect with farmers and authorities to offer your products and services.</p>
-        <button onclick="redirectToVendorsPage()">Join Vendors</button>
-      </div>
-    
-      <!-- Authorities Card -->
-      <div class="card">
-        <div class="image-container">
-          <img src="https://storage.googleapis.com/a1aa/image/xG3lgXrF4FPMDqPCrB1cqk-AXJz9raQiqzTp6FihxOI.jpg" alt="Image of an authority figure in an office" />
-        </div>
-        <h2 data-translate>Grants and Schemes</h2>
-        <p data-translate>Collaborate with farmers and vendors to ensure a sustainable agri ecosystem.</p>
-        <button onclick="redirectToGrantsPage()">Apply Now</button>
+   
+    <!-- Vendor Card 1 -->
+    <div class="resource-card">
+      <img src="./images/vendor.png" alt="Vendor 1" />
+      <div class="card-content">
+        <span class="category" data-translate>Vegetables</span>
+        <h4 data-translate>Green Valley Farms</h4>
+        <p data-translate>Fresh vegetables directly from the farm. Contact for bulk orders.</p>
+        <p data-translate>Phone: +91 23456 5891</p>
       </div>
     </div>
-    
-    <style>
-      .card-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px;
-      }
-    
-      .card {
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 30%;
-        min-width: 250px;
-        text-align: center;
-        padding: 20px;
-        transition: transform 0.3s ease;
-      }
-    
-      .card:hover {
-        transform: scale(1.05);
-      }
-    
-      .image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 150px; /* Adjust height as needed */
-        overflow: hidden;
-        margin-bottom: 15px;
-      }
-    
-      .card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures the image covers the square area */
-        border-radius: 10px; /* Optional: Adds rounded corners */
-      }
-    
-      .card h2 {
-        color: #28a745;
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-      }
-    
-      .card p {
-        color: #666;
-        font-size: 1rem;
-        margin-bottom: 20px;
-      }
-    
-      .card button {
-        background-color: #28a745;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-    
-      .card button:hover {
-        background-color: #218838;
-      }
-    </style>
-  </div>
 
-  <!-- Modal -->
-  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden" id="modal">
-    <div class="bg-white rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2 relative">
-      <span class="text-red-600 text-2xl font-bold absolute top-4 right-4 cursor-pointer" onclick="closeModal()">×</span>
-      <h2 class="text-2xl font-bold mb-4" id="modal-title"></h2>
-      <p class="text-gray-600 mb-4" id="modal-description"></p>
-      <div class="flex flex-col md:flex-row">
-        <div class="w-full md:w-1/2 p-4">
-          <h3 class="text-xl font-bold mb-2"  data-translate>Check Eligibility</h3>
-          <form class="eligibility-form" id="eligibility-form">
-            <label class="block mb-2"  data-translate>
-              Are you an active farmer?
-              <input class="ml-2" name="activeFarmer" type="radio" value="yes" /> Yes
-              <input class="ml-2" name="activeFarmer" type="radio" value="no" /> No
-            </label>
-            <label class="block mb-2" data-translate>
-              Do you own or lease farmland?
-              <input class="ml-2" name="farmland" type="radio" value="yes" /> Yes
-              <input class="ml-2" name="farmland" type="radio" value="no" /> No
-            </label>
-            <label class="block mb-2" data-translate>
-              Do you have government-issued farm registration?
-              <input class="ml-2" name="registration" type="radio" value="yes" /> Yes
-              <input class="ml-2" name="registration" type="radio" value="no" /> No
-            </label>
-            <button class="bg-green-700 text-white py-2 px-4 rounded mt-4 hover:bg-green-800 transition duration-300" onclick="checkEligibility()" type="button">Submit</button>
-          </form>
-          <p class="mt-4 text-gray-600" id="eligibility-result"></p>
-        </div>
-        <div class="w-full md:w-1/2 p-4">
-          <h3 class="text-xl font-bold mb-2" data-translate>Available Schemes & Grants</h3>
-          <ul class="list-disc list-inside text-left" id="schemes-list"></ul>
-        </div>
+    <!-- Vendor Card 2 -->
+    <div class="resource-card">
+      <img src="./images/vendor2.png" alt="Vendor 2" />
+      <div class="card-content">
+        <span class="category" data-translate>Vegetables</span>
+        <h4 data-translate>Organic Harvest</h4>
+        <p data-translate>Organic vegetables at wholesale prices. Delivery available.</p>
+        <p data-translate>Phone: +91 12345 67891</p>
       </div>
-      <div class="mt-6">
-        <h3 class="text-xl font-bold mb-2" data-translate>Steps to Apply</h3>
-        <ol class="list-decimal list-inside text-left" data-translate>
-          <li>Register on the respective scheme's website.</li>
-          <li>Fill out the application form with accurate details.</li>
-          <li>Submit the required documents.</li>
-          <li>Wait for the verification process to complete.</li>
-          <li>Receive confirmation and start benefiting from the scheme.</li>
-        </ol>
+    </div>
+
+    <!-- Vendor Card 3 -->
+    <div class="resource-card">
+      <img src="./images/vendor3.avif" alt="Vendor 3" />
+      <div class="card-content">
+        <span class="category" data-translate>Vegetables</span>
+        <h4 data-translate>Fresh Farm Co.</h4>
+        <p data-translate>High-quality vegetables for retail and wholesale buyers.</p>
+        <p data-translate>Phone: +91 34565 890</p>
       </div>
     </div>
   </div>
+</section>
 
-  <script>
-    const schemesData = {
-      farmers: [
-        { name: "PM-KISAN", link: "https://pmkisan.gov.in" },
-        { name: "KCC Loan", link: "https://kccloan.gov.in" },
-        { name: "Soil Health Card", link: "https://soilhealth.dac.gov.in" }
-      ],
-      vendors: [
-        { name: "Agricultural Vendor Support", link: "https://vendorsupport.gov.in" },
-        { name: "Market Access Grant", link: "https://marketaccess.gov.in" }
-      ],
-      authorities: [
-        { name: "Agriculture Policy Framework", link: "https://agri.gov.in" }
-      ]
-    };
+<!-- Fertilizer Providers Section -->
+<section class="resource" id="fertilizer-providers">
+  <h2 class="heading" data-translate>Connect with Fertilizer Providers</h2>
+  <div class="card-container">
+    <!-- Fertilizer Provider Card 1 -->
+    <div class="resource-card">
+      <img src="./images/fer1.jpeg" alt="Fertilizer Provider 1" />
+      <div class="card-content">
+        <span class="category" data-translate>Fertilizers</span>
+        <h4 data-translate>IFFCO (Indian Farmers Fertiliser Cooperative Limited)</h4>
+        <p data-translate>Organic and chemical fertilizers at wholesale prices.</p>
+        <p data-translate>Phone: +91 11 2338 2453</p>
+      </div>
+    </div>
 
-    function toggleDashboard() {
-      const dashboard = document.getElementById("dashboard");
-      dashboard.classList.toggle("hidden");
-    }
+    <!-- Fertilizer Provider Card 2 -->
+    <div class="resource-card">
+      <img src="./images/fer2.jpeg" alt="Fertilizer Provider 2" />
+      <div class="card-content">
+        <span class="category" data-translate>Fertilizers</span>
+        <h4 data-translate>Saomi Organic and Natural</h4>
+        <p data-translate>Affordable fertilizers for all types of crops.</p>
+        <p data-translate>Phone: +91 79471 76321</p>
+      </div>
+    </div>
 
-    function openModal(type) {
-      document.getElementById("modal-title").innerText = `Join as ${type.charAt(0).toUpperCase() + type.slice(1)}`;
-      document.getElementById("modal-description").innerText = `Explore the latest schemes, grants, and check your eligibility for various programs.`;
-
-      let schemesList = document.getElementById("schemes-list");
-      schemesList.innerHTML = "";
-      schemesData[type].forEach(scheme => {
-        let listItem = document.createElement("li");
-        listItem.innerHTML = `<a href="${scheme.link}" target="_blank" class="text-blue-600 hover:underline">${scheme.name}</a>`;
-        schemesList.appendChild(listItem);
-      });
-
-      document.getElementById("modal").classList.remove("hidden");
-    }
-
-    function closeModal() {
-      document.getElementById("modal").classList.add("hidden");
-      document.getElementById("eligibility-result").innerText = "";
-    }
-
-    function checkEligibility() {
-      let activeFarmer = document.querySelector('input[name="activeFarmer"]:checked');
-      let farmland = document.querySelector('input[name="farmland"]:checked');
-      let registration = document.querySelector('input[name="registration"]:checked');
-
-      if (activeFarmer && farmland && registration) {
-        if (activeFarmer.value === "yes" && farmland.value === "yes" && registration.value === "yes") {
-          document.getElementById("eligibility-result").innerText = "You are eligible for government schemes and grants!";
-        } else {
-          document.getElementById("eligibility-result").innerText = "You may not qualify for all schemes. Check the specific eligibility requirements.";
-        }
-      } else {
-        document.getElementById("eligibility-result").innerText = "Please answer all questions.";
-      }
-    }
-
-    // Redirect to Farmers Page
-    function redirectToFarmersPage() {
-      window.location.href = "farmers.html"; // Replace with the actual URL
-    }
-
-    // Redirect to Vendors Page
-    function redirectToVendorsPage() {
-      window.location.href = "produce.html"; // Replace with the actual URL
-    }
-
-    // Redirect to Grants Page
-    function redirectToGrantsPage() {
-      window.location.href = "grants.html"; // Replace with the actual URL
-    }
-  </script>
-
-
+    <!-- Fertilizer Provider Card 3 -->
+    <div class="resource-card">
+      <img src="./images/fer3.jpeg" alt="Fertilizer Provider 3" />
+      <div class="card-content">
+        <span class="category" data-translate>Fertilizers</span>
+        <h4 data-translate>Aman Industries</h4>
+        <p data-translate>Premium fertilizers for enhanced crop yield.</p>
+        <p data-translate>Phone: +91 78471 76311</p>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Us!</span></h2>
@@ -466,7 +562,7 @@
         </h2>
         <p class="main-para mb-4" data-translate>
           Let us know how we're doing and how we can improve. <br /><strong
-            >AgriLearn Network</strong
+            >KrishiSakhi</strong
           >
         </p>
         <div class="rating mb-4">
@@ -960,7 +1056,7 @@
               position: fixed;
               bottom: 80px;
               right: 20px;
-              width: 400px;
+              width: 320px;
               height: 400px;
               background: white;
               border-radius: 10px;
@@ -1085,8 +1181,6 @@
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({
                           contents: [{ role: "user", parts: [{ text: userMessage + " answer in 100 words" }] }],
-                          contents: [{ role: "user", parts: [{ text: userMessage + " answer in same language in which question has been asked."
-                        }]}],
                           generationConfig: { maxOutputTokens: 250 }
                       })
                   }
@@ -1165,7 +1259,7 @@
     if (/[\u0900-\u097F]/.test(text)) {  // Hindi/Marathi/Sanskrit
         speech.lang = "hi-IN";  
     } else if (/[\u0B80-\u0BFF]/.test(text)) {  // Tamil
-        speech.lang = "mr-IN";  
+        speech.lang = "ta-IN";  
     } else if (/[\u0C00-\u0C7F]/.test(text)) {  // Telugu
         speech.lang = "te-IN";  
     } else if (/[\u0C80-\u0CFF]/.test(text)) {  // Kannada
@@ -1213,9 +1307,7 @@ function stopSpeech() {
   }
 </script>
 
-
     
-
     <script type="text/javascript">
       window.addEventListener("scroll", function () {
         var header = document.querySelector("header");

@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KrishiSakhi</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="./cursor/style.css" />
+    <link rel="stylesheet" href="./testimonials/testimonials.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/b08b6de27e.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7972082263222296" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./Scrollbar/scrollbar.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body { font-family: Arial, sans-serif; text-align: center; margin: 10px; font-size: 14px; }
+      table { width: 90%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+      th, td { border: 1px solid black; padding: 10px; text-align: center; }
+      th { background-color: #4CAF50; color: white; }
+      .chart-container { width: 90%; margin: auto; }
+      canvas { max-width: 100%; height: 300px !important; }
+      .legal-page a { text-decoration: none; color: white; }
+      .legal-page a:hover { color: rgb(192, 223, 100); }
+      .navbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; }
+      .navbar a { color: rgb(22, 3, 3); text-decoration: none; padding: 10px 15px; font-size: 16px; transition: 0.3s; }
+      .navbar a:hover { background: rgba(255, 255, 255, 0.2); border-radius: 5px; }
+      .login-btn { background: #28a745; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
+      .login-btn:hover { background: #218838; }
+      .dropdown { position: relative; display: inline-block; margin-left: auto; }
+      .dropdown > button { background-color: #28a745; color: white; border: none; padding: 10px 15px; font-size: 16px; border-radius: 20px; cursor: pointer; transition: background 0.3s ease; }
+      .dropdown > button:hover { background: #28a745; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
+      .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 140px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); z-index: 1; overflow: hidden; }
+      .dropdown-content button { width: 100%; padding: 10px; text-align: left; border: none; background: none; color: black; font-size: 14px; cursor: pointer; transition: background 0.3s ease; }
+      .dropdown-content button:hover { background-color: #28a745; color: white; }
+      .dropdown:hover .dropdown-content { display: block; }
+      .nav-container { display: flex; align-items: center; width: 100%; }
+      .resource { background-color: #f8f9fa; padding: 50px 0; }
+      .card-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+      .resource-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden; width: 300px; transition: transform 0.3s ease; cursor: pointer; }
+      .resource-card:hover { transform: scale(1.05); }
+      .resource-card img { width: 100%; height: 150px; object-fit: cover; }
+      .card-content { padding: 15px; text-align: center; }
+      .category { font-size: 14px; font-weight: 600; color: #007bff; display: block; margin-bottom: 8px; }
+      h4 { font-size: 18px; margin: 10px 0; }
+      .card-content p { font-size: 14px; color: #666; }
+      .card-btn { display: inline-block; margin-top: 10px; padding: 8px 15px; font-size: 14px; background-color: #007bff; color: white; border-radius: 5px; text-decoration: none; transition: background 0.3s; }
+      .card-btn:hover { background-color: #0056b3; }
+    </style>
+    <script>
+      const translations = {
+        hi: {
+          'Real-Time Market Price Tracker': 'वास्तविक समय बाजार मूल्य ट्रैकर',
+          'Commodity': 'वस्तु',
+          'Current Price (₹/kg)': 'वर्तमान मूल्य (₹/किग्रा)'
+        },
+        mr: {
+          'Real-Time Market Price Tracker': 'वास्तविक वेळेचा बाजारभाव ट्रॅकर',
+          'Commodity': 'माल',
+          'Current Price (₹/kg)': 'चालू किंमत (₹/किग्रॅ)'
+        }
+      };
+
+      function translatePage(lang) {
+        document.querySelector('h2').innerText = translations[lang]['Real-Time Market Price Tracker'];
+        document.querySelectorAll('th')[0].innerText = translations[lang]['Commodity'];
+        document.querySelectorAll('th')[1].innerText = translations[lang]['Current Price (₹/kg)'];
+      }
+    </script>
+  </head>
+  <body>
+    <div id="progressBar"></div>
+    <script src="./Scrollbar/scrollbar.js"></script>
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <header class="header">
+      <img src="logo1.png" alt="logo" style="height: 60px; width: 60px; margin-right: 10px" />
+      <a href="#" class="logo" style="margin-inline-end: auto"><h3 data-translate>KrishiSakhi</h3></a>
+      <nav class="navbar">
+        <div class="nav-container">
+          <a href="index.html" class="active content" data-translate><i class="fa-solid fa-house"></i> Home</a>
+          <a href="#Resource Library" data-translate><i class="fa-solid fa-book"></i> Resource Library</a>
+          <a href="./FAQS/faqpage.html" target="_self" data-translate><i class="fas fa-question-circle"></i> FAQs</a>
+        </div>
+        <div class="dropdown">
+          <button>Language</button>
+          <div class="dropdown-content">
+            <button onclick="translatePage('hi')">HINDI</button>
+            <button onclick="translatePage('mr')">MARATHI</button>
+            <button onclick="translatePage('en')">ENGLISH</button>
+            <button onclick="translatePage('gu')">GUJARATI</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="home" id="home">
+      <div class="slider">
+        <div class="home-content content glow">
+          <h3 class="home--welcome" data-translate>Welcome to</h3>
+          <h1 class="home--welcome" data-translate>KrishiSakhi</h1>
+          <h3 class="home--welcome" data-translate>Your Agricultural Knowledge Hub to <span class="multiple-text un"></span></h3>
+        </div>
+        <div class="slide_viewer">
+          <div class="slide_group">
+            <div class="slide" style="background-image: url(./images/carousel-img-2.jpg)"></div>
+            <div class="slide" style="background-image: url(./images/carousel-img-1.jpg)"></div>
+            <div class="slide" style="background-image: url(./images/carousel-img-3.jpg)"></div>
+            <div class="slide" style="background-image: url(./images/carousel-img-4.jpg)"></div>
+            <div class="slide" style="background-image: url(./images/carousel-img-2.jpg)"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market Price Tracker Section -->
+    <section>
+      
+      <h2 data-translate>Real-Time Market Price Tracker</h2>
+      <table>
+        <thead>
+          <tr>
+            <th data-translate>Commodity</th>
+            <th data-translate>Current Price (₹/kg)</th>
+          </tr>
+        </thead>
+        <tbody id="priceTable"></tbody>
+      </table>
+      <div class="chart-container">
+        <canvas id="priceChart"></canvas>
+      </div>
+    </section>
+
+    <script data-translate>
+      const commodities = ["Wheat", "Rice", "Sugarcane", "Cotton", "Maize", "Barley", "Soybean", "Mustard"];
+      const priceData = {};
+      let priceChart;
+
+      function getRandomPrice() {
+        return (Math.random() * (60 - 20) + 20).toFixed(2);
+      }
+
+      function updatePrices() {
+        const tableBody = document.getElementById("priceTable");
+        tableBody.innerHTML = "";
+        commodities.forEach(commodity => {
+          const price = getRandomPrice();
+          priceData[commodity] = price;
+          const row = `<tr><td>${commodity}</td><td>₹${price}</td></tr>`;
+          tableBody.innerHTML += row;
+        });
+        updateChart();
+      }
+
+      function updateChart() {
+        const ctx = document.getElementById("priceChart").getContext("2d");
+        if (priceChart) priceChart.destroy(); // Prevent multiple charts
+        priceChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: commodities,
+            datasets: [{
+              label: "Current Price (₹/kg)",
+              data: Object.values(priceData),
+              backgroundColor: "#4CAF50"
+            }]
+          },
+          options: { responsive: true, maintainAspectRatio: false }
+        });
+      }
+
+      updatePrices();
+      setInterval(updatePrices, 80000); // Update every 5 seconds
+    </script>
+  
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Us!</span></h2>
+        <form id="contact-form">
+          <div class="input-box">
+            <input type="text" placeholder="Full Name" id="fullname" required />
+            <input
+              type="email"
+              placeholder="Email Address"
+              id="emailaddress"
+              required
+            />
+          </div>
+  
+          <div class="input-box">
+            <input
+              type="number"
+              placeholder="Mobile Number"
+              id="mobileNumber"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Email Subject"
+              id="emailsubject"
+              required
+            />
+          </div>
+  
+          <textarea
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <input
+            type="submit"
+            class="btn"
+            id="contact-btn"
+            value="Submit"
+          /><br />
+        </form>
+        <div class="button-container">
+          <button id="review-btn" data-translate>Give feedback</button>
+        </div>
+      </section>
+  
+      <!-- Modal -->
+      <div
+        id="modal"
+        class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center"
+        style="display: none"
+      >
+        <div class="modal-content bg-white p-6 rounded shadow-lg relative">
+          <h2 class="text-2xl font-bold mb-4" data-translate>
+            WE'D LOVE YOUR FEEDBACK!
+            <span class="close cursor-pointer text-gray-500 absolute text-xl"
+              >&times;</span
+            >
+          </h2>
+          <p class="main-para mb-4" data-translate>
+            Let us know how we're doing and how we can improve. <br /><strong
+              >KrishiSakhi</strong
+            >
+          </p>
+          <div class="rating mb-4">
+            <h3 class="rate-para text-xl font-semibold mb-2" data-translate>
+              Rate Your Experience
+            </h3>
+            <div class="stars" id="stars">
+              <span class="star cursor-pointer" data-value="1">&#9733;</span>
+              <span class="star cursor-pointer" data-value="2">&#9733;</span>
+              <span class="star cursor-pointer" data-value="3">&#9733;</span>
+              <span class="star cursor-pointer" data-value="4">&#9733;</span>
+              <span class="star cursor-pointer" data-value="5">&#9733;</span>
+            </div>
+            <input type="hidden" name="rating" id="rating-value-input" required />
+          </div>
+  
+          <form id="feedback-form">
+            <div class="form-group mb-4">
+              <label for="name" class="block text-left mb-2" data-translate>Your Name</label>
+              <div class="form-group flex items-center mb-4">
+                <div class="icon mr-2">
+                  <i class="fas fa-user"></i>
+                </div>
+                <input
+                  id="name"
+                  class="border p-2 w-full"
+                  type="text"
+                  placeholder="Your Name"
+                  name="name"
+                  required
+                />
+              </div>
+            </div>
+  
+            <div class="form-group mb-4">
+              <label for="email" class="block text-left mb-2" data-translate>Your Email</label>
+              <div class="form-group flex items-center mb-4">
+                <div class="icon mr-2">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <input
+                  id="email"
+                  class="border p-2 w-full"
+                  type="email"
+                  placeholder="Your Email"
+                  name="email"
+                  required
+                />
+              </div>
+            </div>
+  
+            <div class="form-group mb-4">
+              <label for="feedback" class="block text-left mb-2"
+              data-translate>Your Feedback</label
+              >
+              <textarea
+                id="feedback"
+                class="border p-2 w-full"
+                cols="30"
+                rows="5"
+                placeholder="Your Feedback"
+                required
+              ></textarea>
+            </div>
+  
+            <button
+              class="bg-blue-500 text-white px-4 py-2 rounded"
+              type="submit"
+              data-translate>
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+  
+      <div
+        id="thank-you-popup"
+        class="popup fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center"
+        style="display: none"
+      >
+        <div class="popup-content bg-white p-6 rounded shadow-lg text-center">
+          <h2 data-translate>Thank You for your Feedback!💚</h2>
+          <div class="popup-icon">
+            <img
+              src="./images/feedback-tick.png"
+              alt="✅"
+              height="160"
+              width="180"
+            />
+          </div>
+          <p class="pop-para" data-translate>
+            Your feedback has been received!<br />
+            We appreciate the input you provide.
+          </p>
+          <button
+            class="popup-button bg-blue-500 text-white px-4 py-2 rounded"
+            onclick="closePopup()"
+            data-translate>
+            Back to Home
+          </button>
+        </div>
+      </div>
+  
+      <div
+        id="rating-popup"
+        class="popup fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center"
+        style="display: none"
+      >
+        <div class="popup-content bg-white p-8 rounded shadow-lg text-center">
+          <h2 data-translate>Please Give a Rating!⭐</h2>
+          <div class="popup-icon">
+            <img
+              src="./images/Warning.webp"
+              alt="⚠️"
+              height="100"
+              width="120"
+              class="my-4"
+              style="margin-top: 20px; margin-bottom: 20px"
+            />
+          </div>
+          <p class="pop-para" data-translate>
+            Your feedback is important to us.<br />
+            Please select a rating before submitting.
+          </p>
+          <button
+            class="popup-button bg-blue-500 text-white px-4 py-2 rounded mt-4"
+            onclick="closeRatingPopup()"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+      <script>
+        // Function to handle form submission
+        document
+          .getElementById("feedback-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+  
+            // Retrieve form values
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const feedback = document.getElementById("feedback").value.trim();
+            const rating = document
+              .getElementById("rating-value-input")
+              .value.trim();
+  
+            // Check if all fields are filled
+            if (name && email && feedback && rating) {
+              // Show the popup
+              document.getElementById("popup").style.display = "flex";
+  
+              // Reset the form
+              this.reset();
+  
+              // Clear the rating stars
+              const stars = document.querySelectorAll(".star");
+              stars.forEach((star) => star.classList.remove("active"));
+            }
+          });
+  
+        // Function to close the popup
+        function closePopup() {
+          document.getElementById("popup").style.display = "none";
+        }
+  
+        // Handling star ratings
+        // Handling star ratings
+        const stars = document.querySelectorAll(".star");
+  
+        stars.forEach((star, index) => {
+          star.addEventListener("mouseover", function () {
+            // Remove active class from all stars
+            stars.forEach((s) => s.classList.remove("hover"));
+  
+            // Add hover class to the hovered star and all previous stars
+            for (let i = 0; i <= index; i++) {
+              stars[i].classList.add("hover");
+            }
+          });
+  
+          star.addEventListener("click", function () {
+            const value = parseInt(this.getAttribute("data-value"));
+            document.getElementById("rating-value-input").value = value;
+  
+            // Remove active class from all stars
+            stars.forEach((s) => s.classList.remove("active"));
+  
+            // Add active class to clicked star and all previous stars
+            for (let i = 0; i < value; i++) {
+              stars[i].classList.add("active");
+            }
+          });
+        });
+  
+        // Remove hover class when mouse leaves the star container
+        document
+          .querySelector(".stars")
+          .addEventListener("mouseleave", function () {
+            stars.forEach((star) => star.classList.remove("hover"));
+          });
+  
+        // Close modal
+        document.querySelector(".close").addEventListener("click", () => {
+          document.getElementById("modal").style.display = "none";
+        });
+  
+        //RATING MODAL
+        document.addEventListener("DOMContentLoaded", function () {
+          const stars = document.querySelectorAll(".star");
+          const ratingInput = document.getElementById("rating-value-input");
+          const modal = document.getElementById("modal");
+          const closeModal = document.querySelector(".close");
+  
+          stars.forEach((star) => {
+            star.addEventListener("click", function () {
+              const ratingValue = this.getAttribute("data-value");
+              ratingInput.value = ratingValue;
+              stars.forEach((star) => {
+                if (star.getAttribute("data-value") <= ratingValue) {
+                  star.classList.add("text-yellow-500");
+                } else {
+                  star.classList.remove("text-yellow-500");
+                }
+              });
+            });
+          });
+  
+          document
+            .getElementById("feedback-form")
+            .addEventListener("submit", function (event) {
+              event.preventDefault();
+  
+              if (!ratingInput.value) {
+                document.getElementById("rating-popup").style.display = "flex";
+                return;
+              }
+  
+              document.getElementById("thank-you-popup").style.display = "flex";
+            });
+  
+          closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+          });
+        });
+  
+        function closePopup() {
+          document.getElementById("thank-you-popup").style.display = "none";
+        }
+  
+        function closeRatingPopup() {
+          document.getElementById("rating-popup").style.display = "none";
+        }
+  
+        // To open the modal
+        function openModal() {
+          document.getElementById("modal").style.display = "flex";
+        }
+      </script>
+      <!-- Contact form Backend -->
+      <script>
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent the default form submission
+  
+            // Gather form data
+            const fullname = document.getElementById("fullname").value;
+            const emailaddress = document.getElementById("emailaddress").value;
+            const mobileNumber = document.getElementById("mobileNumber").value;
+            const emailsubject = document.getElementById("emailsubject").value;
+            const message = document.getElementById("message").value;
+  
+            try {
+              // Send data to backend
+              const response = await fetch("http://localhost:3000/contact", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  fullname,
+                  emailaddress,
+                  mobileNumber,
+                  emailsubject,
+                  message,
+                }),
+              });
+  
+              if (response.ok) {
+                alert(
+                  "Thank you for contacting us! We will get back to you soon."
+                );
+                document.getElementById("contact-form").reset(); // Clear form
+              } else {
+                alert(
+                  "There was an error submitting your request. Please try again."
+                );
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              alert("An unexpected error occurred. Please try again later.");
+            }
+          });
+      </script>
+  
+      <footer class="footer">
+        <div class="footer-grid">
+          <div class="footer-title">
+            <h2 data-translate >KrishiSakhi</h2>
+          </div>
+          <div class="footer-icons">
+            <p><b data-translate>Follow us on our socials:</b></p>
+            <div class="socialIcons">
+              <a
+                id="mail"
+                href="mailto:KrishiSakhi@gmail.com"
+                class="email-link"
+                data-tooltip="KrishiSakhi@gmail.com"
+                ><i class="fas fa-envelope"></i
+              ></a>
+              <a
+                id="inst"
+                href="https://www.instagram.com/"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                id="twit"
+                href="https://twitter.com/"
+                target="_blank"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a
+                id="fb"
+                href="https://www.facebook.com/"
+                target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="quick-links">
+          <h2 data-translate>Quick Links</h2>
+          <ul>
+            <li>
+              <a href="#home"><p data-translate>Home</p></a>
+            </li>
+            <li>
+              <a href="./about/about.html"><p data-translate>About Us</p></a>
+            </li>
+            
+            <li>
+              <a href="./FAQS/faqpage.html"><p data-translate>FAQs</p></a>
+            </li>
+           
+            <li>
+              <a href="#contact"><p data-translate>Contact Us</p></a>
+            </li>
+           
+            
+          </ul>
+        </div>
+       <!-- <div class="footer-text footer-right">
+          <p style="font-weight: 600; font-size: 15px" data-translate>
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            by  | All Rights Reserved
+            <span class="legal-page"
+              ><a href="./testimonials/termsandconditions.html"
+                >| Terms and Conditions</a
+              ></span
+            >
+            <span class="legal-page"
+              ><a href="./testimonials/privacypolicy.html"
+                >| Privacy Policy</a
+              ></span
+            >
+          </p>
+        </div>-->
+      </footer>
+      <div id="backtoTop">
+        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
+      <div class="cursor"></div>
+      <div class="cursor2"></div>
+  
+      <!--Floating Iconbar
+      <div class="icon-bar">
+        <a href="https://www.instagram.com/" class="instagram" target="_blank"
+          >Instagram<i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.facebook.com/" class="facebook" target="_blank"
+          >Facebook<i class="fab fa-facebook"></i
+        ></a>
+        <a href="https://x.com/" class="twitter" target="_blank"
+          >Twitter<i class="fab fa-x-twitter"></i
+        ></a>
+        <a href="https://www.linkedin.com/" class="linkedIn" target="_blank"
+          >LinkedIn<i class="fab fa-linkedin"></i
+        ></a>
+      </div>-->
+  
+      <script src="https://unpkg.com/scrollreveal"></script>
+      <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  
+      <script src="script.js"></script>
+      <!-- <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script src="https://mediafiles.botpress.cloud/1cfb7415-d4fc-4477-8d00-3717d30c975b/webchat/config.js" defer></script> -->
+  
+      <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  
+      <script>
+        window.addEventListener("scroll", function () {
+          var scrollPosition = window.scrollY;
+          var backToTopButton = document.getElementById("backtoTop");
+  
+          if (scrollPosition > 300) {
+            // Adjust this value as needed to show the button at the desired scroll position
+            backToTopButton.style.display = "block";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+  
+        document.addEventListener("DOMContentLoaded", function () {
+          const slideGroup = document.querySelector(".slide_group");
+          let currentSlide = 0;
+          const images = [
+            "./images/carousel-img-2.jpg",
+            "./images/carousel-img-1.jpg",
+            "./images/carousel-img-3.jpg",
+            "./images/carousel-img-4.jpg",
+          ];
+  
+          function showSlide(n) {
+            slideGroup.style.left = `${-n * 100}%`; // Adjust left property based on current slide
+            currentSlide = n;
+          }
+  
+          function nextSlide() {
+            currentSlide = (currentSlide + 1) % images.length; // Move to the next slide
+            showSlide(currentSlide);
+          }
+  
+          setInterval(nextSlide, 2000); // Automatically change slide every 2 seconds
+  
+          // Preload images for smoother transition
+          images.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+          });
+        });
+  
+        // mobile no validation @dhruv8433
+        const mobileNumberInput = document.getElementById("mobileNumber");
+  
+        mobileNumberInput.addEventListener("input", () => {
+          const maxLength = 10;
+          const value = mobileNumberInput.value;
+  
+          if (value.length > maxLength) {
+            mobileNumberInput.value = value.slice(0, maxLength);
+          }
+        });
+      </script>
+      <!-- <script src="https://mediafiles.botpress.cloud/43c4d3ec-a251-474f-8cce-3d8737805a57/webchat/config.js" defer></script> -->
+      
+      <head>
+        <style>
+            /* Chatbot Button */
+            #chatbotButton {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                cursor: pointer;
+            }
+    
+            /* Chatbot Container (Initially Hidden) */
+            #chatContainer {
+                display: none; /* Ensures chatbot is hidden at start */
+                position: fixed;
+                bottom: 80px;
+                right: 20px;
+                width: 400px;
+                height: 400px;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+            }
+    
+            /* Chatbox */
+            #chatBox {
+      flex: 1;
+      overflow-y: auto;
+      max-height: 300px; /* Adjust as needed */
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+  }
+  
+    
+            /* Message Colors */
+            .user { color: blue; margin: 5px 0; }
+            .bot { color: green; margin: 5px 0; }
+            .error { color: red; margin: 5px 0; }
+    
+            /* Input Field */
+            #userInput {
+                flex: 1;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                outline: none;
+            }
+    
+            /* Buttons */
+            #sendButton, #voiceButton, #stopSpeechButton {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 8px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-left: 5px;
+            }
+    
+            #sendButton:hover, #voiceButton:hover {
+                background-color: #0056b3;
+            }
+    
+            #stopSpeechButton {
+                background-color: red; /* Different color for stop button */
+            }
+    
+            .input-container {
+                display: flex;
+                padding: 8px;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <!-- Chatbot Toggle Button -->
+        <button id="chatbotButton" onclick="toggleChatbot()">💬</button>
+    
+        <!-- Chatbot Window -->
+        <div id="chatContainer">
+            <div id="chatBox"></div>
+            <div class="input-container">
+                <input type="text" id="userInput" placeholder="Type a message...">
+                <button id="sendButton" onclick="sendMessage()">Send</button>
+                <button id="voiceButton" onclick="startVoiceRecognition()">🎤</button>
+                <button id="stopSpeechButton" onclick="stopSpeech()">🔇</button>
+            </div>
+        </div>
+    
+        <script>
+            // Ensures chatbot is hidden on page load
+            document.addEventListener("DOMContentLoaded", function () {
+                document.getElementById("chatContainer").style.display = "none";
+            });
+  
+    
+        const API_KEY = "AIzaSyA-Rc5LcrRASGsAUBP9aeZZGC0DjHECIeA"; // NEVER expose your real API key in frontend
+  
+        function toggleChatbot() {
+            const chatContainer = document.getElementById("chatContainer");
+            chatContainer.style.display = chatContainer.style.display === "none" ? "block" : "none";
+        }
+  
+        async function sendMessage(userMessage) {
+            const inputField = document.getElementById("userInput");
+            const chatBox = document.getElementById("chatBox");
+  
+            if (!userMessage) {
+                userMessage = inputField.value.trim();
+                if (!userMessage) return;
+            }
+  
+            chatBox.innerHTML += `<div class='user'><strong>You:</strong> ${userMessage}</div>`;
+            inputField.value = "";  
+            chatBox.scrollTop = chatBox.scrollHeight;
+            const greetings = ["hi", "hello", "hey", "namaste", "hola"];
+      if (greetings.includes(userMessage.toLowerCase())) {
+          let botReply = "Hello! How can I assist you today? ";
+          chatBox.innerHTML += `<div class='bot'><strong>Bot:</strong> ${botReply}</div>`;
+          chatBox.scrollTop = chatBox.scrollHeight;
+          speakText(botReply); // Speak the response
+          return;}
+  
+            const loadingMessage = document.createElement("div");
+            loadingMessage.className = "bot";
+            loadingMessage.innerHTML = "<strong>Bot:</strong> Typing...";
+            chatBox.appendChild(loadingMessage);
+            chatBox.scrollTop = chatBox.scrollHeight;
+  
+            try {
+                const response = await fetch(
+                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
+                    {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            contents: [{ role: "user", parts: [{ text: userMessage + " answer in 100 words" }] }],
+                            contents: [{ role: "user", parts: [{ text: userMessage + " answer in same language in which question has been asked."
+                          }]}],
+                            generationConfig: { maxOutputTokens: 250 }
+                        })
+                    }
+                );
+  
+                const data = await response.json();
+                console.log("API Response:", data);
+  
+                if (!data?.candidates || data.candidates.length === 0) {
+                    throw new Error("No valid response from API.");
+                }
+  
+                let botReply = data.candidates[0]?.content?.parts?.[0]?.text || "Sorry, couldn't generate a response.";
+                botReply = formatStructuredResponse(botReply);
+  
+                chatBox.removeChild(loadingMessage);
+                chatBox.innerHTML += `<div class='bot'><strong>Bot:</strong><br>${botReply}</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+  
+                speakText(botReply); // Convert bot's reply to speech
+  
+            } catch (error) {
+                console.error("Error fetching response:", error);
+                chatBox.removeChild(loadingMessage);
+                chatBox.innerHTML += `<div class='error'><strong>Bot:</strong> Error fetching response</div>`;
+            }
+        }
+  
+        // ✅ Function to format response into bullet points or numbered lists
+        function formatStructuredResponse(text) {
+            text = text.replace(/(\d+)\.\s/g, "<br><b>$1.</b> "); 
+            text = text.replace(/[-*]\s/g, "<br>• "); 
+            return text;
+        }
+  
+        // ✅ Voice Recognition Logic (Speech-to-Text)
+        function startVoiceRecognition() {
+            if (!('webkitSpeechRecognition' in window)) {
+                alert("Your browser doesn't support speech recognition. Try Chrome!");
+                return;
+            }
+  
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = "en-US";
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+  
+            recognition.onstart = function () {
+                document.getElementById("voiceButton").style.backgroundColor = "red"; // Indicate listening mode
+            };
+  
+            recognition.onspeechend = function () {
+                recognition.stop();
+                document.getElementById("voiceButton").style.backgroundColor = "#007bff"; // Reset button color
+            };
+  
+            recognition.onresult = function (event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById("userInput").value = transcript;
+                sendMessage(transcript); // Auto-send after speech input
+            };
+  
+            recognition.onerror = function (event) {
+                alert("Speech recognition error: " + event.error);
+            };
+  
+            recognition.start();
+        }
+  
+        // ✅ Text-to-Speech (TTS) for Bot Replies
+        function speakText(text) {
+      const speech = new SpeechSynthesisUtterance();
+      speech.text = text;
+      
+      // ✅ Detect language automatically
+      if (/[\u0900-\u097F]/.test(text)) {  // Hindi/Marathi/Sanskrit
+          speech.lang = "hi-IN";  
+      } else if (/[\u0B80-\u0BFF]/.test(text)) {  // Tamil
+          speech.lang = "mr-IN";  
+      } else if (/[\u0C00-\u0C7F]/.test(text)) {  // Telugu
+          speech.lang = "te-IN";  
+      } else if (/[\u0C80-\u0CFF]/.test(text)) {  // Kannada
+          speech.lang = "kn-IN";  
+      } else if (/[\u0A80-\u0AFF]/.test(text)) {  // Gujarati
+          speech.lang = "gu-IN";  
+      } else if (/[\u0A00-\u0A7F]/.test(text)) {  // Punjabi
+          speech.lang = "pa-IN";  
+      } else {  
+          speech.lang = "en-US";  // Default to English
+      }
+  
+      speech.rate = 1;
+      speech.pitch = 1;
+      speech.volume = 1;
+      window.speechSynthesis.speak(speech);
+  }
+  
+        // ✅ Stop Speech Manually
+  function stopSpeech() {
+      window.speechSynthesis.cancel(); // Stop speech immediately
+  }
+  
+    </script>
+  <script>
+    async function translatePage(targetLang) {
+        const apiKey = "AIzaSyCeunyta6zPFpxITmXecwuJ41OEKl4HXcs";  // Replace with your API key
+        const elements = document.querySelectorAll("[data-translate]");
+        
+        for (let element of elements) {
+            const text = element.innerText;
+            const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+            
+            const response = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ q: text, target: targetLang })
+            });
+  
+            const data = await response.json();
+            if (data.data) {
+                element.innerText = data.data.translations[0].translatedText;
+            }
+        }
+    }
+  </script>
+  
+  
+      
+  
+      <script type="text/javascript">
+        window.addEventListener("scroll", function () {
+          var header = document.querySelector("header");
+          header.classList.toggle("sticky", window.scrollY > 10);
+        });
+      </script>
+      <script>
+        var cursor = document.querySelector(".cursor");
+        var cursor2 = document.querySelector(".cursor2");
+        document.addEventListener("mousemove", function (e) {
+          cursor.style.cssText = cursor2.style.cssText =
+            "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+        });
+      </script>
+    </body>
+  
+</html>

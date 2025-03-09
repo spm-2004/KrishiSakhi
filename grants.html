@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Schemes Eligibility Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7ef;
+            border-left: 4px solid #4CAF50;
+        }
+        .result h3 {
+            margin-top: 0;
+        }
+        .result ul {
+            padding-left: 20px;
+        }
+        .result a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .result a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Farmers Schemes Eligibility Checker</h1>
+    <div class="container">
+        <form id="eligibilityForm">
+            <label for="landSize">Land Size (in acres):</label>
+            <input type="number" id="landSize" name="landSize" required>
+
+            <label for="income">Annual Income (in INR):</label>
+            <input type="number" id="income" name="income" required>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="general">General</option>
+                <option value="scst">SC/ST</option>
+                <option value="obc">OBC</option>
+                <option value="smallFarmer">Small Farmer</option>
+            </select>
+
+            <button type="submit">Check Eligibility</button>
+        </form>
+
+        <div id="result" class="result" style="display: none;">
+            <h3>Eligible Schemes:</h3>
+            <ul id="schemeList"></ul>
+            <h3>Steps to Apply:</h3>
+            <ol id="stepsToApply"></ol>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for schemes
+        const schemes = [
+            {
+                name: "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+                link: "https://pmkisan.gov.in/",
+                eligibility: { landSize: 0, income: 150000, category: "all" },
+                steps: [
+                    "Visit the official PM-KISAN website.",
+                    "Click on 'New Farmer Registration'.",
+                    "Fill in the required details and upload documents.",
+                    "Submit the form and note the reference number."
+                ]
+            },
+            {
+                name: "National Mission for Sustainable Agriculture (NMSA)",
+                link: "https://nmsa.dac.gov.in/",
+                eligibility: { landSize: 2, income: 200000, category: "all" },
+                steps: [
+                    "Contact your nearest agriculture office.",
+                    "Submit the application form with required documents.",
+                    "Wait for verification and approval."
+                ]
+            },
+            {
+                name: "Sub-Mission on Agricultural Mechanization (SMAM)",
+                link: "https://agrimachinery.nic.in/GraphReport/SMAMFmtti/SMAMFmtti.aspx",
+                eligibility: { landSize: 5, income: 500000, category: "all" },
+                steps: [
+                    "Visit the SMAM portal.",
+                    "Fill out the application form for subsidies.",
+                    "Submit the form along with land and income proofs."
+                ]
+            },
+            {
+                name: "SC/ST Schemes",
+                link: "https://agricoop.nic.in/",
+                eligibility: { landSize: 0, income: 100000, category: "scst" },
+                steps: [
+                    "Visit the nearest agriculture department office.",
+                    "Submit caste certificate and land documents.",
+                    "Fill out the scheme application form."
+                ]
+            }
+        ];
+
+        // Function to check eligibility
+        function checkEligibility(landSize, income, category) {
+            const eligibleSchemes = schemes.filter(scheme => {
+                const { landSize: reqLand, income: reqIncome, category: reqCategory } = scheme.eligibility;
+                return (
+                    landSize >= reqLand &&
+                    income <= reqIncome &&
+                    (reqCategory === "all" || reqCategory === category)
+                );
+            });
+            return eligibleSchemes;
+        }
+
+        // Function to display eligible schemes and steps
+        function displayResults(eligibleSchemes) {
+            const schemeList = document.getElementById('schemeList');
+            const stepsToApply = document.getElementById('stepsToApply');
+            schemeList.innerHTML = '';
+            stepsToApply.innerHTML = '';
+
+            if (eligibleSchemes.length > 0) {
+                eligibleSchemes.forEach(scheme => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<a href="${scheme.link}" target="_blank">${scheme.name}</a>`;
+                    schemeList.appendChild(listItem);
+
+                    const steps = scheme.steps;
+                    steps.forEach(step => {
+                        const stepItem = document.createElement('li');
+                        stepItem.textContent = step;
+                        stepsToApply.appendChild(stepItem);
+                    });
+                });
+                document.getElementById('result').style.display = 'block';
+            } else {
+                alert("You are not eligible for any schemes at the moment.");
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('eligibilityForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const landSize = parseFloat(document.getElementById('landSize').value);
+            const income = parseFloat(document.getElementById('income').value);
+            const category = document.getElementById('category').value;
+
+            const eligibleSchemes = checkEligibility(landSize, income, category);
+            displayResults(eligibleSchemes);
+        });
+    </script>
+</body>
+</html>

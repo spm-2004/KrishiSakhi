@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report & Farming Precautions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex justify-center items-center h-screen bg-cover bg-center"  >
+    <div class="bg-gray-800 p-6 rounded-xl shadow-xl text-center w-96">
+        <h1 class="text-2xl font-bold mb-4">Weather Report</h1>
+        <input id="city" type="text" placeholder="Enter city" class="p-2 w-full rounded-md text-black" />
+        <button onclick="getWeather()" class="mt-4 px-4 py-2 bg-blue-500 rounded-md">Get Weather</button>
+        <div id="weather" class="mt-6 text-lg"></div>
+        <div id="precautions" class="mt-6 text-lg text-yellow-400"></div>
+        <div id="farming" class="mt-6 text-lg text-green-400"></div>
+    </div>
+
+    <script>
+        async function getWeather() {
+            const apiKey = 'a1d2e56783b04eeb96e163657250703';
+            const city = document.getElementById('city').value;
+            const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const temp = data.current.temp_c;
+                let precautions = "";
+                let farmingReport = "";
+                
+                if (temp > 30) {
+                    precautions = "High temperature! Ensure proper irrigation, use mulching to retain soil moisture, and avoid pesticide application during peak heat hours.";
+                    farmingReport = "Suitable crops: Millets, Sorghum, Groundnut, Cotton. Ensure deep plowing and use heat-resistant varieties.";
+                } else if (temp > 25) {
+                    precautions = "Moderate heat. Increase watering frequency and monitor crops for heat stress symptoms.";
+                    farmingReport = "Suitable crops: Maize, Sugarcane, Sunflower, Pulses. Use organic mulch and proper irrigation techniques.";
+                } else if (temp > 20) {
+                    precautions = "Favorable temperature for farming. Maintain regular irrigation and crop care.";
+                    farmingReport = "Suitable crops: Wheat, Barley, Vegetables (Tomato, Potato, Carrot). Use fertilizers to enhance soil fertility.";
+                } else {
+                    precautions = "Cool weather. Protect crops from frost and maintain soil temperature using organic mulch.";
+                    farmingReport = "Suitable crops: Mustard, Peas, Cabbage, Spinach. Use polyhouse techniques for better yield.";
+                }
+                
+                document.getElementById('weather').innerHTML = 
+                    `<p class='text-xl'>${data.location.name}, ${data.location.country}</p>
+                     <p class='text-4xl font-bold'>${temp}°C</p>
+                     <p>${data.current.condition.text}</p>`;
+                
+                document.getElementById('precautions').innerHTML = `<p><strong>Farming Precautions:</strong> ${precautions}</p>`;
+                document.getElementById('farming').innerHTML = `<p><strong>Crop Suggestions:</strong> ${farmingReport}</p>`;
+            } catch (error) {
+                document.getElementById('weather').innerHTML = '<p class="text-red-500">City not found!</p>';
+                document.getElementById('precautions').innerHTML = "";
+                document.getElementById('farming').innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>
